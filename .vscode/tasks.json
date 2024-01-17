@@ -1,0 +1,120 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Set umm to be executable",
+      "type": "shell",
+      "command": "chmod",
+      "args": [
+        {
+          "value": "+x",
+          "quoting": "escape"
+        },
+        {
+          "value": "${config:ummBinaryPath}",
+          "quoting": "weak"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean library and target folders",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "clean",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Check Main",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "check",
+          "quoting": "escape"
+        },
+        {
+          "value": "Main",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Check JavaDoc for Main",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "doc-check",
+          "quoting": "escape"
+        },
+        {
+          "value": "Main",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Grade Assignment",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "grade",
+          "quoting": "escape"
+        },
+        {
+          "value": "${input:gradable_assignments}",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": [
+        {
+          "applyTo": "allDocuments",
+          "fileLocation": [
+            "relative",
+            "${workspaceFolder}"
+          ],
+          "owner": "umm",
+          "pattern": {
+            "endLine": 2,
+            "file": 1,
+            "line": 2,
+            "message": 3,
+            "regexp": "\\s*[│]\\s*([\\w./]+)\\s*[│]\\s*([0-9]+)\\s*[│]\\s*([\\w ]+)"
+          }
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "id": "gradable_assignments",
+      "description": "Which assignment are you working on?",
+      "options": [
+        "implementing_array_lists",
+        "implementing_array_queues",
+        "implementing_array_stacks",
+        "implementing_linked_lists",
+        "implementing_linked_queues",
+        "implementing_linked_stacks",
+        "interfaces_generics_1",
+        "interfaces_generics_2",
+        "pyramid_scheme",
+        "test_driven_development",
+        "writing_junit_tests_1",
+        "writing_junit_tests_2",
+        "writing_junit_tests_2-2"
+      ],
+      "default": "implementing_array_lists"
+    }
+  ]
+}
