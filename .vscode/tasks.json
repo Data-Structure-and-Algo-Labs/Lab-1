@@ -30,6 +30,128 @@
       "problemMatcher": []
     },
     {
+      "label": "Reset project metadata",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "reset",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Check health of the project",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "check-health",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Update umm executable",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "update",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run tests for ProgrammingPractice1Test",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "group": "test",
+      "args": [
+        {
+          "value": "test",
+          "quoting": "escape"
+        },
+        {
+          "value": "ProgrammingPractice1Test",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run specific test from ProgrammingPractice1Test",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "group": "test",
+      "args": [
+        {
+          "value": "test",
+          "quoting": "escape"
+        },
+        {
+          "value": "ProgrammingPractice1Test",
+          "quoting": "escape"
+        },
+        {
+          "value": "${input:ProgrammingPractice1Test}",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Check ProgrammingPractice1Test",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "check",
+          "quoting": "escape"
+        },
+        {
+          "value": "ProgrammingPractice1Test",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Check JavaDoc for ProgrammingPractice1Test",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "doc-check",
+          "quoting": "escape"
+        },
+        {
+          "value": "ProgrammingPractice1Test",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Main",
+      "type": "shell",
+      "command": "${config:ummBinaryPath}",
+      "args": [
+        {
+          "value": "run",
+          "quoting": "escape"
+        },
+        {
+          "value": "Main",
+          "quoting": "escape"
+        }
+      ],
+      "problemMatcher": []
+    },
+    {
       "label": "Check Main",
       "type": "shell",
       "command": "${config:ummBinaryPath}",
@@ -97,24 +219,32 @@
   "inputs": [
     {
       "type": "pickString",
-      "id": "gradable_assignments",
-      "description": "Which assignment are you working on?",
+      "id": "ProgrammingPractice1Test",
+      "description": "Which test to run?",
       "options": [
-        "implementing_array_lists",
-        "implementing_array_queues",
-        "implementing_array_stacks",
-        "implementing_linked_lists",
-        "implementing_linked_queues",
-        "implementing_linked_stacks",
-        "interfaces_generics_1",
-        "interfaces_generics_2",
-        "pyramid_scheme",
-        "test_driven_development",
-        "writing_junit_tests_1",
-        "writing_junit_tests_2",
-        "writing_junit_tests_2-2"
+        "testPart0",
+        "testPart1",
+        "testPart2",
+        "testPart3",
+        "testPart4",
+        "testPart5",
+        "testPart6",
+        "testPart7",
+        "testPart8",
+        "testPart9",
+        "testPart10",
+        "testPart11"
       ],
-      "default": "implementing_array_lists"
+      "default": "testPart0"
+    },
+    {
+      "type": "pickString",
+      "id": "gradable_assignments",
+      "description": "What script to use?",
+      "options": [
+        "script.rhai"
+      ],
+      "default": "script.rhai"
     }
   ]
 }
